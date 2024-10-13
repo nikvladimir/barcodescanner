@@ -14,7 +14,7 @@ buildscript {
 }
 
 allprojects {
-    group = 'xyz.yjtan.barcodescanner'
+    group = 'com.github.nikvladimir.barcodescanner'
     version = '1.9.13'
 
     repositories {

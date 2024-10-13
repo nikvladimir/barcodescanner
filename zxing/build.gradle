@@ -6,7 +6,7 @@ plugins {
 ext {
     isLibrary = true
     pomPackaging = "aar"
-    pomArtifactId = "zxing"
+    pomArtifactId = "barcodescanner"
     pomName = "ZXing Scanner View"
     pomDescription = 'An android library project which contains the zxing barcode scanner view'
 }
