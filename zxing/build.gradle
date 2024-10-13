@@ -1,15 +1,8 @@
 plugins {
     id "com.android.library"
-    id "maven-publish"
 }
 
-ext {
-    isLibrary = true
-    pomPackaging = "aar"
-    pomArtifactId = "barcodescanner"
-    pomName = "ZXing Scanner View"
-    pomDescription = 'An android library project which contains the zxing barcode scanner view'
-}
+apply from: "../common.gradle"
 
 dependencies {
     api project(":core")
@@ -19,26 +12,4 @@ dependencies {
 
 android {
     namespace 'me.dm7.barcodescanner.zxing'
-
-    publishing {
-        multipleVariants {
-            allVariants()
-            withSourcesJar()
-            withJavadocJar()
-        }
-    }
-}
-
-publishing {
-    publications {
-        allVariants(MavenPublication) {
-            afterEvaluate {
-                from components.default
-            }
-        }
-    }
-
-    repositories {
-
-    }
 }

@@ -1,0 +1,69 @@
+if (plugins.hasPlugin("com.android.application") || plugins.hasPlugin("com.android.library")) {
+    android {
+        compileSdk 34
+
+        lintOptions {
+            abortOnError false
+        }
+
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+
+        defaultConfig {
+            minSdkVersion 21
+            targetSdkVersion 34
+            versionCode 1913
+            versionName "1.9.13"
+        }
+
+        publishing {
+            singleVariant("release") {
+                withSourcesJar()
+            }
+        }
+    }
+
+    // Apply Maven Publish plugin
+    apply plugin: 'maven-publish'
+
+    publishing {
+        publications {
+            release(MavenPublication) {
+                afterEvaluate {
+                    from components.release
+                }
+
+                groupId = 'com.github.nikvladimir.barcodescanner'
+                artifactId = project.name
+                version = '1.9.13'
+
+                pom {
+                    name = 'Barcode scanner'
+                    description = 'Barcode scanner'
+                    url = 'https://github.com/nikvladimir/barcodescanner'
+
+                    licenses {
+                        license {
+                            name = 'The MIT License'
+                            url = 'https://opensource.org/licenses/MIT'
+                        }
+                    }
+                    developers {
+                        developer {
+                            id = 'nikvladimir'
+                            name = 'Vladimir'
+                        }
+                    }
+                    scm {
+                        connection = 'scm:git:github.com/nikvladimir/barcodescanner.git'
+                        developerConnection = 'scm:git:ssh://github.com/nikvladimir/barcodescanner.git'
+                        url = 'https://github.com/nikvladimir/barcodescanner'
+                    }
+                }
+            }
+        }
+    }
+
+}
