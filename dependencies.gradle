@@ -1,5 +1,5 @@
 ext.versions = [
-        compile_sdk   : 35,
+        compile_sdk   : 34,
         min_sdk       : 21,
         target_sdk    : 35,
         androidx      : "1.0.0",
